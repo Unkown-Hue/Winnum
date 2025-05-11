@@ -193,7 +193,7 @@ int main(){
     fprintf(stream, "#ifndef %s\n", header);
     fprintf(stream, "#define %s\n", header);
     fprintf(stream, "#include <stdint.h>\n");
-    fputs("int_fast8_t numarray[] = {\n", stream);
+    fputs("int numarray[] = {\n", stream);
     while(tokens[i].valid != 0){
         if (j == 6){
             i++;
