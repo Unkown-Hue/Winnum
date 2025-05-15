@@ -1,0 +1,216 @@
+
+---------------------------------------------
+First number: 3
+Second number: 22
+Third number: 37
+Fourth number: 61
+Fifth number: 10
+Special number: 5
+---------------------------------------------
+
+---------------------------------------------
+First number: 41
+Second number: 22
+Third number: 27
+Fourth number: 39
+Fifth number: 56
+Special number: 1
+---------------------------------------------
+
+---------------------------------------------
+First number: 66
+Second number: 5
+Third number: 27
+Fourth number: 28
+Fifth number: 35
+Special number: 1
+---------------------------------------------
+
+---------------------------------------------
+First number: 1
+Second number: 14
+Third number: 35
+Fourth number: 52
+Fifth number: 35
+Special number: 2
+---------------------------------------------
+
+---------------------------------------------
+First number: 37
+Second number: 22
+Third number: 22
+Fourth number: 10
+Fifth number: 13
+Special number: 3
+---------------------------------------------
+
+---------------------------------------------
+First number: 19
+Second number: 35
+Third number: 12
+Fourth number: 17
+Fifth number: 17
+Special number: 19
+---------------------------------------------
+
+---------------------------------------------
+First number: 28
+Second number: 43
+Third number: 22
+Fourth number: 29
+Fifth number: 17
+Special number: 29
+---------------------------------------------
+
+---------------------------------------------
+First number: 13
+Second number: 22
+Third number: 13
+Fourth number: 45
+Fifth number: 3
+Special number: 3
+---------------------------------------------
+
+---------------------------------------------
+First number: 62
+Second number: 22
+Third number: 9
+Fourth number: 40
+Fifth number: 17
+Special number: 33
+---------------------------------------------
+
+---------------------------------------------
+First number: 37
+Second number: 2
+Third number: 24
+Fourth number: 56
+Fifth number: 11
+Special number: 18
+---------------------------------------------
+
+---------------------------------------------
+First number: 34
+Second number: 40
+Third number: 38
+Fourth number: 29
+Fifth number: 67
+Special number: 7
+---------------------------------------------
+
+---------------------------------------------
+First number: 69
+Second number: 47
+Third number: 27
+Fourth number: 2
+Fifth number: 35
+Special number: 6
+---------------------------------------------
+
+---------------------------------------------
+First number: 56
+Second number: 36
+Third number: 64
+Fourth number: 53
+Fifth number: 62
+Special number: 14
+---------------------------------------------
+
+---------------------------------------------
+First number: 3
+Second number: 49
+Third number: 8
+Fourth number: 6
+Fifth number: 11
+Special number: 18
+---------------------------------------------
+
+---------------------------------------------
+First number: 13
+Second number: 40
+Third number: 26
+Fourth number: 52
+Fifth number: 17
+Special number: 17
+---------------------------------------------
+
+---------------------------------------------
+First number: 68
+Second number: 22
+Third number: 62
+Fourth number: 2
+Fifth number: 3
+Special number: 21
+---------------------------------------------
+
+---------------------------------------------
+First number: 43
+Second number: 21
+Third number: 1
+Fourth number: 25
+Fifth number: 17
+Special number: 5
+---------------------------------------------
+
+---------------------------------------------
+First number: 39
+Second number: 15
+Third number: 36
+Fourth number: 16
+Fifth number: 35
+Special number: 4
+---------------------------------------------
+
+---------------------------------------------
+First number: 13
+Second number: 22
+Third number: 42
+Fourth number: 70
+Fifth number: 62
+Special number: 21
+---------------------------------------------
+
+---------------------------------------------
+First number: 3
+Second number: 36
+Third number: 33
+Fourth number: 58
+Fifth number: 59
+Special number: 1
+---------------------------------------------
+
+---------------------------------------------
+First number: 32
+Second number: 38
+Third number: 48
+Fourth number: 29
+Fifth number: 2
+Special number: 31
+---------------------------------------------
+
+---------------------------------------------
+First number: 13
+Second number: 60
+Third number: 27
+Fourth number: 29
+Fifth number: 10
+Special number: 23
+---------------------------------------------
+
+---------------------------------------------
+First number: 56
+Second number: 65
+Third number: 3
+Fourth number: 29
+Fifth number: 9
+Special number: 9
+---------------------------------------------
+
+---------------------------------------------
+First number: 68
+Second number: 59
+Third number: 58
+Fourth number: 29
+Fifth number: 31
+Special number: 2
+---------------------------------------------

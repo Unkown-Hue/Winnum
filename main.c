@@ -1,94 +1,132 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <time.h>
-#include "numarray.h"
+#include "SDL3/SDL_events.h"
+#include "SDL3/SDL_keycode.h"
+#include "SDL3/SDL_mouse.h"
+#include <SDL3/SDL_main.h>
+#include <SDL3/SDL.h>
 
-// random number generator using numbers from megamillions website.
-// https://www.megamillions.com/Winning-Numbers/Previous-Drawings.aspx#page8
+#include "SDL3/SDL_video.h"
+#include "lot.h"
 
-#define Rand() (rand() & rand() & rand())
+#define WIDTH 1080
+#define HEIGHT 720 
 
-typedef struct {
-    int n1;
-    int n2;
-    int n3;
-    int n4;
-    int n5;
-    int s_n6;
-} lot;
-
-int arraysize;
-
-// checking for 2019 -> 2024 wins
-int *numb1;
-
-int *numb2;
-
-int *numb3;
-
-int *numb4;
-
-int *numb5;
-
-int *s_numb6;
-
-// returns random lot numbers
-void Getlot(lot* l){
-    l->n1 = numb1[Rand() % arraysize];
-    l->n2 = numb2[Rand() % arraysize];
-    l->n3 = numb3[Rand() % arraysize];
-    l->n4 = numb4[Rand() % arraysize];
-    l->n5 = numb5[Rand() % arraysize];
-    l->s_n6 = s_numb6[Rand() % arraysize];
-    return;
-}
-
-// initializes the arrays
-void init(){
-    int i;
-    int j;
-    arraysize = sizeof(numarray) / sizeof(int) / 6;
-    numb1 = (int*)malloc(arraysize * sizeof(int));
-    numb2 = (int*)malloc(arraysize * sizeof(int));
-    numb3 = (int*)malloc(arraysize * sizeof(int));
-    numb4 = (int*)malloc(arraysize * sizeof(int));
-    numb5 = (int*)malloc(arraysize * sizeof(int));
-    s_numb6 = (int*)malloc(arraysize * sizeof(int));
-    for (i = 0, j = 0; i + 5 < arraysize * 6; i += 6, j++){
-        numb1[j] = numarray[i];
-        numb2[j] = numarray[i + 1];
-        numb3[j] = numarray[i + 2];
-        numb4[j] = numarray[i + 3];
-        numb5[j] = numarray[i + 4];
-        s_numb6[j] = numarray[i + 5];
+int Isover(SDL_FRect *square, int x, int y){
+    if (x >= square->x && x <= square->x + square->w && y >= square->y && y <= square->y + square->h){
+        return true;
     }
-    printf("%d\n", j);
+    return false;
 }
 
-//free memory from the arrays
-void Freearray(){
-    free(numb1);
-    free(numb2);
-    free(numb3);
-    free(numb4);
-    free(numb5);
-    free(s_numb6);
-}
+int main(int argc, char **argv){
+    SDL_Init(SDL_INIT_VIDEO);
+    bool done = false;
+    bool w_held = false;
+    bool s_held = false;
+    bool a_held = false;
+    bool d_held = false;
+    int win_width;
+    int win_height;
+    SDL_Renderer *renderer;
+    SDL_Window *window;
+    SDL_Event event;
+    window = SDL_CreateWindow("idk lol", WIDTH, HEIGHT, SDL_WINDOW_RESIZABLE);
+    if (window == NULL){
+        SDL_Quit();
+    }
+    renderer = SDL_CreateRenderer(window, NULL);
+    if (renderer == NULL){
+        SDL_DestroyWindow(window);
+        SDL_Quit();
+    }
+    SDL_FRect square = {WIDTH / 2 - 50, HEIGHT / 2 - 50, 100, 100};
+    do {
+        SDL_PollEvent(&event);
+        switch(event.type){
+            case SDL_EVENT_QUIT:
+                done = true;
+                break;
+            case SDL_EVENT_MOUSE_BUTTON_DOWN:
+                if (event.button.button == SDL_BUTTON_LEFT){
+                    int x = event.button.x;
+                    int y = event.button.y;
+                    if (Isover(&square, x, y)){
+                        lot l = Lot();
+                        Writelot(&l);
+                    }
+                }
+                break;
+            case SDL_EVENT_KEY_DOWN:
+                if (event.key.key == SDLK_ESCAPE){
+                    done = true;
+                }
+                if (event.key.key == SDLK_W){
+                    w_held = true;
+                }
+                if (event.key.key == SDLK_S){
+                    s_held = true;
+                }
+                if (event.key.key == SDLK_A){
+                    a_held = true;
+                }
+                if (event.key.key == SDLK_D){
+                    d_held = true;
+                }
+                break;
+            case SDL_EVENT_KEY_UP:
+                if (event.key.key == SDLK_W){
+                    w_held = false;
+                }
+                if (event.key.key == SDLK_S){
+                    s_held = false;
+                }
+                if (event.key.key == SDLK_A){
+                    a_held = false;
+                }
+                if (event.key.key == SDLK_D){
+                    d_held = false;
+                }
+                break;
 
-int main(){
-    // makes the rand() function random
-    srand(time(NULL));
-    // initializes the arrays
-    init();
-    lot l;
-    // returns a random number from the array
-    Getlot(&l);
-    printf("First Number: %d\n", l.n1);
-    printf("Second Number: %d\n", l.n2);
-    printf("Third Number: %d\n", l.n3);
-    printf("Fourth Number: %d\n", l.n4);
-    printf("Fifth Number: %d\n", l.n5);
-    printf("Sixth Number: %d\n", l.s_n6);
-    Freearray();
+        }
+        SDL_GetWindowSizeInPixels(window, &win_width, &win_height);
+        if (w_held){
+            if (a_held || d_held){
+                square.y += 5;
+            }
+            if (square.y - 10 >= 0) square.y -= 10;
+        }
+        if (s_held){
+            if (a_held || d_held){
+                square.y -= 5;
+            }
+            if (square.y + square.h + 10 <= win_height){
+                square.y += 10;
+            }
+        }
+        if (a_held){
+            if (s_held || w_held){
+                square.x += 5;
+            }
+            if (square.x - 10 >= 0) square.x -= 10;
+        }
+        if (d_held){
+            if (s_held || w_held){
+                square.x -= 5;
+            }
+            if (square.x + square.w + 10 <= win_width){
+                square.x += 10;
+            }
+        }
+        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_RenderClear(renderer);
+        SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+        SDL_RenderFillRect(renderer, &square);
+        SDL_RenderPresent(renderer);
+        SDL_Delay(16);
+    }
+    while(!done);
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+    return 0;
 }
