@@ -1,7 +1,0 @@
-[
-  {
-    "directory": "C:/Users/akiva/c/winnum1",
-    "command": "clang -IC:/Users/akiva/SDL3/include -std=c23 -c main.c",
-    "file": "main.c"
-  }
-]
