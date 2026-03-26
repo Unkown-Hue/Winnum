@@ -1,2 +1,2 @@
 all:
-	gcc -std=c23 main.c -o main -s
+	gcc main.c rand.c -o main -s

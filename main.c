@@ -4,6 +4,7 @@
 #include <string.h>
 #include <time.h>
 #include "numarray.h"
+#include "rand.h"
 
 char *Getline(){
 	int ch;
@@ -39,8 +40,6 @@ typedef struct {
     int n5;
     int s_n6;
 } lot;
-
-#define Rand() (rand() & rand() & rand())
 
 int arraysize;
 
@@ -111,6 +110,7 @@ void Printlot(lot *l){
 }
 
 int main(){
+    Seed();
     lot l;
     char *str;
     // makes the rand() function random
